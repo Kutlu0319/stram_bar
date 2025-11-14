@@ -16,9 +16,9 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'  # İstediğin Python versiyonunu yazabilirsin
+          python-version: '3.10'
 
-      # 3️⃣ Bağımlılıkları yükle (requirements.txt varsa)
+      # 3️⃣ Bağımlılıkları yükle
       - name: Install dependencies
         run: |
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
@@ -31,7 +31,7 @@ jobs:
 
       # 5️⃣ Oluşan ppv.m3u8 dosyasını artifacts olarak sakla
       - name: Upload M3U playlist
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ppv-playlist
           path: ppv.m3u8
