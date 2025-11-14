@@ -1,42 +1,37 @@
-name: Update PPV M3U8 Playlist
+name: Generate M3U Playlist
 
 on:
-  schedule:
-    - cron: '0 */12 * * *'
-  workflow_dispatch:
+  workflow_dispatch:  # Manuel tetikleme
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0   # <-- En önemli düzeltme (tüm geçmişi çeker)
+      # 1️⃣ Repo'yu çek
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Set up Python
+      # 2️⃣ Python kur
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.10'  # İstediğin Python versiyonunu yazabilirsin
 
+      # 3️⃣ Bağımlılıkları yükle (requirements.txt varsa)
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install playwright
+          playwright install chromium
 
-      - name: Run scraper script
+      # 4️⃣ Scripti çalıştır
+      - name: Run M3U generator
         run: python all_channels/ppv.py
 
-      - name: Commit and push updated playlist
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-          git add ppv.m3u8
-          git commit -m "Automated update of ppv.m3u8 playlist" || echo "No changes to commit"
-
-          # <-- Eklenen satır: uzak değişiklikleri önce çek
-          git pull --rebase origin main
-
-          git push
+      # 5️⃣ Oluşan ppv.m3u8 dosyasını artifacts olarak sakla
+      - name: Upload M3U playlist
+        uses: actions/upload-artifact@v3
+        with:
+          name: ppv-playlist
+          path: ppv.m3u8
