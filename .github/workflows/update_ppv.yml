@@ -2,18 +2,20 @@ name: Update PPV M3U8 Playlist
 
 on:
   schedule:
-    - cron: '0 */12 * * *'  # Runs every 12 hours
-  workflow_dispatch:  # Enables manual triggering
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Explicitly grants write access for commits/pushes
+      contents: write
+
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Persists credentials for git operations
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0   # <-- En önemli düzeltme (tüm geçmişi çeker)
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -30,6 +32,11 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
           git add ppv.m3u8
           git commit -m "Automated update of ppv.m3u8 playlist" || echo "No changes to commit"
+
+          # <-- Eklenen satır: uzak değişiklikleri önce çek
+          git pull --rebase origin main
+
           git push
