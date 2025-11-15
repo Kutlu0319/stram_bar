@@ -3,8 +3,18 @@
 #EXT-X-REFERER:https://main.uxsyplayerbcd362c475.click/
 #EXT-X-ORIGIN:https://main.uxsyplayerbcd362c475.click
 
-#EXTINF:-1 tvg-name="Racing Santander - Granada - 23:00" group-title="Maç Yayınları",Racing Santander - Granada - 23:00
+#EXTINF:-1 tvg-name="Cleveland Cavaliers - Memphis Grizzlies - 01:00" group-title="Maç Yayınları",Cleveland Cavaliers - Memphis Grizzlies - 01:00
 https://dga1op10s1u3lep.eaf7037ecd540a.click/live/s-sport/playlist.m3u8
+#EXTINF:-1 tvg-name="Anadolu Efes - Bahçeşehir Klj - 13:00" group-title="Maç Yayınları",Anadolu Efes - Bahçeşehir Klj - 13:00
+https://dga1op10s1u3lep.eaf7037ecd540a.click/live/bein-sports-5/playlist.m3u8
+#EXTINF:-1 tvg-name="Trabzonspor - Beşiktaş GAİN - 15:30" group-title="Maç Yayınları",Trabzonspor - Beşiktaş GAİN - 15:30
+https://dga1op10s1u3lep.eaf7037ecd540a.click/live/bein-sports-5/playlist.m3u8
+#EXTINF:-1 tvg-name="Merkezefendi Bld. - Tofaş - 18:00" group-title="Maç Yayınları",Merkezefendi Bld. - Tofaş - 18:00
+https://dga1op10s1u3lep.eaf7037ecd540a.click/live/bein-sports-5/playlist.m3u8
+#EXTINF:-1 tvg-name="Esenler Erokspor - Fenerbahçe Beko - 20:30" group-title="Maç Yayınları",Esenler Erokspor - Fenerbahçe Beko - 20:30
+https://dga1op10s1u3lep.eaf7037ecd540a.click/live/bein-sports-5/playlist.m3u8
+#EXTINF:-1 tvg-name="Auburn - Houston Cougars - 23:00" group-title="Maç Yayınları",Auburn - Houston Cougars - 23:00
+https://dga1op10s1u3lep.eaf7037ecd540a.click/live/s-sport-2/playlist.m3u8
 #EXTINF:-1 tvg-name="Bein Sports 1" group-title="BeinSports",Bein Sports 1
 https://dga1op10s1u3lep.eaf7037ecd540a.click/live/bein-sports-1/playlist.m3u8
 #EXTINF:-1 tvg-name="Bein Sports 2" group-title="BeinSports",Bein Sports 2
